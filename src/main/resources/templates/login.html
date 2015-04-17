@@ -1,20 +1,103 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    <head>
-        <title>Spring Security Example </title>
-    </head>
-    <body>
-        <div th:if="${param.error}">
-            Invalid username and password.
-        </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
-        </div>
-        <form th:action="@{/login}" method="post">
-            <div><label> User Name : <input type="text" name="username"/> </label></div>
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-            <div><input type="submit" value="Sign In"/></div>
-        </form>
-    </body>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login</title>
+
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/css/signin.css}" rel="stylesheet" />
+<script type="text/javascript"
+	th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+<style type="text/css">
+      /* Override some defaults */
+      html, body {
+        background-color: #eee;
+      }
+      body {
+        padding-top: 40px; 
+      }
+      .container {
+        width: 300px;
+      }
+
+      /* The white background content wrapper */
+      .container > .content {
+        background-color: #fff;
+        padding: 20px;
+        margin: 0 -20px; 
+        -webkit-border-radius: 10px 10px 10px 10px;
+           -moz-border-radius: 10px 10px 10px 10px;
+                border-radius: 10px 10px 10px 10px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+
+      .login-form {
+        margin-left: 65px;
+      }
+
+      legend {
+        margin-right: -50px;
+        font-weight: bold;
+          color: #404040;
+      }
+
+    </style>
+
+</head>
+<body onload="document.f.username.focus();">
+
+	<div class="container">
+		<p th:if="${param.logout}" class="alert">Anda sudah logout</p>
+		<p th:if="${param.error}" class="alert alert-error">Error, harap coba lagi</p>
+		<div class="content">
+		<form id="f" class="form-signin" th:action="@{/login}" method="post">
+			<h2 class="form-signin-heading">Login</h2>
+			<label for="username" class="sr-only">Username</label> <input
+				type="text" id="username" name="username" class="form-control" autofocus="true"
+				placeholder="Username" /> <label for="password" class="sr-only">Password</label>
+			<input type="password" id="password" name="password"
+				class="form-control" placeholder="Password" />
+
+			<button class="btn btn-primary" type="submit">Sign
+				in</button>
+		</form>
+		</div>
+	</div>
+	
+
+</body>
+
+<!-- <body onload="document.f.username.focus();">
+	<div class="container">
+		<p th:if="${param.logout}" class="alert">Anda sudah logout</p>
+		<p th:if="${param.error}" class="alert alert-error">Error, harap
+			coba lagi</p>
+		<div class="content">
+
+			<div class="row">
+				<div class="login-form">
+					<h2>Login</h2>
+					<form id="f" class="form-signin" th:action="@{/login}"
+						method="post">
+						<fieldset>
+							<div class="clearfix">
+								<input type="text" id="username" name="username"
+									class="form-control" placeholder="Username" />
+							</div>
+							<div class="clearfix">
+								<input type="password" id="password" name="password"
+									class="form-control" placeholder="Password" />
+							</div>
+							<button class="btn btn-primary" type="submit">Sign in</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	/container
+</body> -->
+
 </html>

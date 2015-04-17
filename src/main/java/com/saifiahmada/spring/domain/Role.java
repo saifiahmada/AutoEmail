@@ -2,12 +2,12 @@ package com.saifiahmada.spring.domain;
 
 import java.util.List;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "ROLES")
@@ -17,7 +17,6 @@ public class Role {
 	@GeneratedValue
 	private Integer id;
 	
-	@Size(min=3, message="minimal 3 karakter")
 	private String name;
 	
 	@ManyToMany(mappedBy="roles")

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>User</title>
+	<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+	<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script> 
+</head>
+<body>
+
+	<div th:include="header :: header"></div>
+	<br/>
+	<div class="container">
+		
+		<div th:if="${param.success}">
+			<div class="alert alert-success">Data OK</div>
+		</div>
+		<div th:if="${param.error}">
+			<div class="alert alert-success">ERROR</div>
+		</div>
+		
+		<h3 th:inline="text">User</h3>
+		
+		<form action="" th:object="${user}" class="form-horizontal" th:action="@{/user/simpan}" method="post">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Username</label>
+				<div class="col-sm-5">
+					<input type="text" name="username" th:field="*{username}" class="form-control" maxlength="20" /> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Password</label>
+				<div class="col-sm-5">
+					<input type="password" name="password" th:field="*{password}" class="form-control" maxlength="20" /> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Email</label>
+				<div class="col-sm-5">
+					<input type="text" th:field="*{email}" class="form-control" maxlength="50" /> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Role</label>
+				<div class="col-sm-5">
+					<div class="checkbox">
+						<label><input type="checkbox" name="cekAdmin" /> Admin </label> 
+					</div>
+					<div class="checkbox">
+						<label><input type="checkbox" name="cekUser" /> User </label> 
+					</div>
+					   
+				</div>
+			</div>
+			<button type="submit" class="btn btn-success">
+				<span class="glyphicon glyphicon-floppy-disk"></span> Simpan
+			</button>
+			<a th:href="@{/user/form.html}" class="btn btn-success"> 
+				<span class="glyphicon glyphicon-refresh"></span> Reset
+			</a>
+			<a href="#" th:href="@{/user/list.html}" class="btn btn-success"> 
+				<span class="glyphicon glyphicon-list"></span> Data
+			</a>
+			
+		</form>
+		
+	</div>
+
+</body>
+</html>

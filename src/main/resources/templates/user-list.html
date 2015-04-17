@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>List User</title>
+
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+	<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+</head>
+
+<body>
+
+	<div th:include="header :: header"></div>
+	<br />
+	<br />
+	<br />
+	<div class="container">
+		
+		<a th:href="@{/user/form.html}" class="btn btn-success"> 
+			<span class="glyphicon glyphicon-plus"></span> Tambah
+		</a>
+		<br/>
+		<br/>
+		<table class="table table-bordered table-hover table-striped">
+			<thead>
+				<tr>
+					<th>Username</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="u : ${users}">
+					<td th:text="${u.username}">user</td>
+					<td th:text="${u.email}">user</td>
+				</tr>
+				
+			</tbody>
+			
+		</table>
+
+	</div>
+
+</body>
+</html>

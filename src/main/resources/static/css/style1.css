@@ -1,0 +1,70 @@
+body {
+background-color: #FFFFFF;
+background-image: url(/images/bg.jpg);
+background-repeat: repeat-x;
+}
+
+ #banjar {
+background-color:#C0DEED;
+background: url(images/banjar.png)  no-repeat; position:absolute;  z-index:1;
+  width:2400px;
+  height:400px;
+  animation: banjar-animasi 99s linear infinite;
+  -ms-animation: banjar-animasi 10s linear infinite;
+  -moz-animation: banjar-animasi 100s linear infinite ;
+  -webkit-animation: banjar-animasi 10s linear infinite;
+	-o-animation: banjar-animasi 15s linear infinite;
+ }
+ 
+ .banjar {
+background-color:#C0DEED;
+background: url(images/banjar.png)  no-repeat; position:absolute;  z-index:1;
+  width:2400px;
+  height:400px;
+  animation: banjar-animasi 99s linear infinite;
+  -ms-animation: banjar-animasi 10s linear infinite;
+  -moz-animation: banjar-animasi 100s linear infinite ;
+  -webkit-animation: banjar-animasi 10s linear infinite;
+	-o-animation: banjar-animasi 15s linear infinite;
+ }
+ 
+@keyframes banjar-animasi {
+  from {
+ 
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  };
+}
+
+@-webkit-keyframes banjar-animasi {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  };
+}
+
+@-ms-keyframes banjar-animasi {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  };
+}
+
+@-moz-keyframes banjar-animasi {
+  from {
+    background-position: 0% 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  };
+}
