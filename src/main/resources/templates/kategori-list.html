@@ -16,16 +16,16 @@
 
 </head>
 
-<body>
+<body onload="document.form.searchText.focus();">
 
 	<div th:include="header :: header"></div>
 	<div class="container">
 		<h3 th:text="'Data ' + ${page}"></h3>
 
-		<form action="#" th:action="@{/tutorial/search.html}" method="post">
+		<form id="form" action="#" th:action="@{'/'+${page}+'/search.html'}" method="post">
 			<div class="col-sm-5">
-				<input type="text" name="judulText"
-					placeholder="Cari berdasarkan judul" class="form-control" />
+				<input type="text" id="searchText" name="searchText"
+					placeholder="Cari berdasarkan kategori" class="form-control" />
 			</div>
 			<button type="submit" class="btn btn-success">
 				<span class="glyphicon glyphicon-search"> Cari</span>
@@ -41,18 +41,13 @@
 			<thead>
 				<tr>
 					<th>No</th>
-					<th>Judul</th>
 					<th>Kategori</th>
-					<th>File PDF</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="tutorial, number : ${tutorials}">
+				<tr th:each="entity, number : ${dataModel}">
 					<td th:text="${number.count}">1</td>
-					<td th:text="${tutorial.judul}">Judul</td>
-					<td th:text="${tutorial.kategori.kategori}">Kategori</td>
-					<td><a th:href="@{'/tutorial_pdf/'+${tutorial.namaFile}}"
-						target="_blank"><span th:text="${tutorial.namaFile}" /></a></td>
+					<td th:text="${entity.kategori}">Kategori</td>
 				</tr>
 
 			</tbody>
@@ -61,25 +56,25 @@
 
 		<div class="table-pagination">
 			<ul class="pagination">
-				<li th:class="${tutorials.number eq 0} ? 'disabled' : ''">
-					<a th:if="${!tutorials.first}" th:href="@{'/tutorial/pages/'+${tutorials.number}+'.html'}">Previous</a>
-					<a th:if="${tutorials.first}" href="javascript:void(0);">Previous</a>
+				<li th:class="${dataModel.number eq 0} ? 'disabled' : ''">
+					<a th:if="${!dataModel.first}" th:href="@{'/tutorial/pages/'+${dataModel.number}+'.html'}">Previous</a>
+					<a th:if="${dataModel.first}" href="javascript:void(0);">Previous</a>
 				</li>
 
 				<li
-					th:each="pageNo : ${#numbers.sequence(0, tutorials.totalPages - 1)}"
-					th:class="${tutorials.number eq pageNo}? 'active' : ''">
-					<a th:if="${tutorials.number  eq pageNo}" href="javascript:void(0);"> <span th:text="${pageNo + 1}"></span></a>
-					<a th:if="${! (tutorials.number  eq pageNo)}"
+					th:each="pageNo : ${#numbers.sequence(0, dataModel.totalPages - 1)}"
+					th:class="${dataModel.number eq pageNo}? 'active' : ''">
+					<a th:if="${dataModel.number  eq pageNo}" href="javascript:void(0);"> <span th:text="${pageNo + 1}"></span></a>
+					<a th:if="${! (dataModel.number  eq pageNo)}"
 					th:href="@{'/tutorial/pages/'+${pageNo + 1}+'.html'}">
 						<span th:text="${pageNo + 1}"></span>
 				</a></li>
 				<li
-					th:class="${tutorials.number + 1 ge tutorials.totalPages} ? 'disabled' : ''">
-					<a th:if="${! tutorials.last}" th:href="@{'/tutorial/pages/'+${tutorials.number + 2}+'.html'}">Next</a>
-					<a th:if="${tutorials.last}" href="javascript:void(0);">Next</a>
+					th:class="${dataModel.number + 1 ge dataModel.totalPages} ? 'disabled' : ''">
+					<a th:if="${! dataModel.last}" th:href="@{'/tutorial/pages/'+${dataModel.number + 2}+'.html'}">Next</a>
+					<a th:if="${dataModel.last}" href="javascript:void(0);">Next</a>
 				</li>
-				<li><span th:text="'Jumlah data '+${tutorials.totalElements}"></span></li>
+				<li><span th:text="'Jumlah data '+${dataModel.totalElements}"></span></li>
 			</ul>
 		</div>
 	</div>

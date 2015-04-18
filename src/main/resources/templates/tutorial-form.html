@@ -24,6 +24,16 @@
 						<input type="text" th:field="*{judul}" class="form-control" />
 				</div>
 			</div>
+			<div class="form-group">
+				<label for="kategori" class="col-sm-2 control-label">Kategori</label>
+				<div class="col-sm-5">
+					<select th:field="*{kategori}" class="form-control"> 
+					  <option th:each="type : ${kategoris}" 
+					          th:value="${type.id}" 
+					          th:text="${type.kategori}">Kategori</option>
+					</select>	
+				</div>
+			</div>
 			
 			<div class="form-group">
 				<label for="file" class="col-sm-2 control-label">File PDF</label>

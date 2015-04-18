@@ -1,23 +1,21 @@
 package com.saifiahmada.spring.domain;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.Max;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class Tutorial implements Serializable {
+public class Kategori implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -25,20 +23,12 @@ public class Tutorial implements Serializable {
 	@GenericGenerator(name="system-uuid", strategy = "uuid2")
 	@Column(length=40, nullable=false)
 	private String id;
-	
 	@NotEmpty
 	@NotNull
-	@Column(length=50, nullable=false)
-	private String judul;
-	@NotEmpty
-	@NotNull
-	@Column(length=54, nullable=false)
-	private String namaFile;
+	@Column(length=20, nullable=false)
+	private String kategori;
 	
-	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER) 
-	private Kategori kategori;
-	
-	public Tutorial() {
+	public Kategori() {
 
 	}
 
@@ -50,27 +40,11 @@ public class Tutorial implements Serializable {
 		this.id = id;
 	}
 
-	public String getJudul() {
-		return judul;
-	}
-
-	public void setJudul(String judul) {
-		this.judul = judul;
-	}
-
-	public String getNamaFile() {
-		return namaFile;
-	}
-
-	public void setNamaFile(String namaFile) {
-		this.namaFile = namaFile;
-	}
-
-	public Kategori getKategori() {
+	public String getKategori() {
 		return kategori;
 	}
 
-	public void setKategori(Kategori kategori) {
+	public void setKategori(String kategori) {
 		this.kategori = kategori;
 	}
 
@@ -90,7 +64,7 @@ public class Tutorial implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Tutorial other = (Tutorial) obj;
+		Kategori other = (Kategori) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -101,7 +75,7 @@ public class Tutorial implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Tutorial [id=" + id + "]";
+		return "Kategori [id=" + id + "]";
 	}
 	
 }

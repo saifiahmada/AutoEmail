@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="${page}"></title>
+	<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+	<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script> 
+</head>
+<body onload="document.form.kategori.focus();">
+
+	<div th:include="header :: header"></div>
+	<div class="container">
+		<h3 th:text="${page}">Input Data Tutorial</h3>
+		
+		<div th:if="${pesan != null}">
+			<div class="alert alert-success"><p th:text="${pesan}"></p></div>
+		</div>
+		
+		<form id="form" action="#" th:object="${entity}" enctype="multipart/form-data"
+			th:action="@{'/'+${page}+'/save.html'}" method="post" class="form-horizontal">
+		
+			<div class="form-group">
+				<label for="kategori" class="col-sm-2 control-label">Kategori</label>
+				<div class="col-sm-5">
+						<input type="text" id="kategori" th:field="*{kategori}" class="form-control" />
+				</div>
+			</div>
+			
+			<button type="submit" class="btn btn-success">
+				<span class="glyphicon glyphicon-floppy-disk"></span> Simpan
+			</button>
+			<a href="#" th:href="@{'/'+${page}+'/form.html'}" class="btn btn-success">
+				<span class="glyphicon glyphicon-refresh"></span> Reset
+			</a>
+			<a href="#" th:href="@{'/'+${page}+'/pages/1.html'}" class="btn btn-success">
+				<span class="glyphicon glyphicon-list"></span> Data
+			</a>
+		
+		</form>
+		
+	</div>
+
+</body>
+</html>

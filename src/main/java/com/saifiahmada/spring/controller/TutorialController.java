@@ -3,20 +3,14 @@ package com.saifiahmada.spring.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.validation.Valid;
 
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,25 +18,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.saifiahmada.spring.domain.Kategori;
 import com.saifiahmada.spring.domain.Tutorial;
+import com.saifiahmada.spring.service.KategoriService;
 import com.saifiahmada.spring.service.TutorialService;
-import com.saifiahmada.spring.util.PageWrapper;
 
 @Controller
 @RequestMapping(value="/tutorial")
 public class TutorialController {
-	
-	private static final int ROW_PER_PAGE = 10;  
 	
 	@Value("${com.saifiahmada.spring.path}")
     private String path;
 	
 	@Autowired
 	private TutorialService tutorialService;
+	@Autowired
+	private KategoriService kategoriService;
 	
 	@ModelAttribute("page")
 	public String getPage(){
 		return "tutorial";
+	}
+	
+	@ModelAttribute("kategoris")
+	public Page<Kategori> getKategoris(){
+		return kategoriService.findAllForDropdown();
 	}
 	
 	@RequestMapping(value="/form", method=RequestMethod.GET)
@@ -79,6 +79,10 @@ public class TutorialController {
 	
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	public String save(@ModelAttribute("tutorial") Tutorial tutorial, @RequestParam("file") MultipartFile file, Model model){
+		
+		System.out.println("judul " + tutorial.getJudul());
+		System.out.println("namaFIle " + tutorial.getNamaFile());
+		System.out.println("id kategori " + tutorial.getKategori());
 		
 		String fileName = "awal.pdf";
 		
