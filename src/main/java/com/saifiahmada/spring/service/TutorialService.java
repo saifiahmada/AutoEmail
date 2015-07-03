@@ -6,6 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.saifiahmada.spring.domain.Kategori;
 import com.saifiahmada.spring.domain.Tutorial;
 import com.saifiahmada.spring.repository.TutorialRepository;
 
@@ -29,6 +30,11 @@ public class TutorialService {
 	public Page<Tutorial> findByJudulContaining(String judul){
 		PageRequest request = new PageRequest(0 , PAGE_SIZE, Sort.Direction.ASC, "judul");
 		return tutorialRepository.findByJudulContaining(judul, request); 
+	}
+	
+	public Page<Tutorial> findByJudulOrKategoriContaining(String judul, Kategori kategori){
+		PageRequest request = new PageRequest(0 , PAGE_SIZE, Sort.Direction.ASC, "judul");
+		return tutorialRepository.findByJudulOrKategoriContaining(judul, kategori, request); 
 	}
 	
     public Page<Tutorial> findAll(Integer pageNumber) {

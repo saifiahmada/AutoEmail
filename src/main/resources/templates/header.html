@@ -20,17 +20,25 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" th:href="@{/}">Tutorial</a>
+					<a class="navbar-brand" th:href="@{/}">SIMahasiswa</a>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
 						
 						<li th:class="${page == 'home' ? 'active' : ''}"><a th:href="@{/}"><span class="glyphicon glyphicon-home"></span> Home</a></li> 
 						<!-- <li th:class="${page == 'email' ? 'active' : ''}"><a th:href="@{/email}"><span class="glyphicon glyphicon-envelope"></span> Email</a></li> --> 
-						<li th:class="${page == 'tutorial' ? 'active' : ''}"><a th:href="@{/tutorial/pages/1}"><span class="glyphicon glyphicon-file"></span> Tutorial</a></li> 
+						<!-- <li th:class="${page == 'tutorial' ? 'active' : ''}"><a th:href="@{/tutorial/pages/1}"><span class="glyphicon glyphicon-file"></span> Tutorial</a></li> 
 						<li th:class="${page == 'specprog' ? 'active' : ''}"><a th:href="@{/tutorial/pages/1}"><span class="glyphicon glyphicon-file"></span> Spec Prog</a></li> 
 						<li th:class="${page == 'kategori' ? 'active' : ''}"><a th:href="@{/kategori/pages/1}"><span class="glyphicon glyphicon-file"></span> Kategori</a></li> 
-						<li th:class="${page == 'user' ? 'active' : ''}"><a th:href="@{/user/form}"><span class="glyphicon glyphicon-th-list"></span> User</a></li> 
+						<li th:class="${page == 'user' ? 'active' : ''}"><a th:href="@{/user/form}"><span class="glyphicon glyphicon-th-list"></span> User</a></li> --> 
+						<!-- <li th:class="${page == 'matakuliah' ? 'active' : ''}"><a th:href="@{/matakuliah/pages/1}"><span class="glyphicon glyphicon-file"></span> Mata Kuliah</a></li> -->
+						<!-- <li th:class="${page == 'mahasiswa' ? 'active' : ''}"><a th:href="@{/mahasiswa/pages/1}"><span class="glyphicon glyphicon-file"></span> Mahasiswa</a></li> -->
+						<!-- <li th:class="${page == 'pendaftaran' ? 'active' : ''}"><a th:href="@{/pendaftaran/form}"><span class="glyphicon glyphicon-th-list"></span> Pendaftaran</a></li>  -->
+						<!-- <li th:class="${page == 'barang' ? 'active' : ''}"><a th:href="@{/barang/pages/1}"><span class="glyphicon glyphicon-file"></span> Barang</a></li>  -->
+						<!-- <li th:class="${page == 'pembayaran' ? 'active' : ''}"><a th:href="@{/pembayaran/pages/1}"><span class="glyphicon glyphicon-file"></span> Pembayaran</a></li> --> 
+						<li th:class="${page == 'peserta' ? 'active' : ''}"><a th:href="@{/peserta/pages/1}"><span class="glyphicon glyphicon-file"></span> Peserta</a></li> 
+						<li th:class="${page == 'peserta' ? 'active' : ''}"><a th:href="@{/peserta/cetak-form}"><span class="glyphicon glyphicon-file"></span> Cetak Kartu</a></li> 
+						<li th:class="${page == 'prodi' ? 'active' : ''}"><a th:href="@{/prodi/pages/1}"><span class="glyphicon glyphicon-file"></span> Prodi</a></li> 
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#user"><span class="glyphicon glyphicon-user" th:inline="text"> [[${#httpServletRequest.remoteUser}]]</span></a></li> 

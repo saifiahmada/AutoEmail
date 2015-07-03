@@ -15,6 +15,8 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.ServletWebArgumentResolverAdapter;
+import org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView;
+import org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver;
 
 @Configuration
 
@@ -81,5 +83,20 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         resolver.setFallbackPagable(new PageRequest(1, 5));
         argumentResolvers.add(new ServletWebArgumentResolverAdapter(resolver));
     }*/
+	
+	@Bean
+	public JasperReportsViewResolver getJasperReportsViewResolver(){
+		JasperReportsViewResolver resolver = new JasperReportsViewResolver();
+		resolver.setPrefix("classpath:/jasperreports/");
+		resolver.setSuffix(".jasper");
+		//resolver.setReportDataKey("datasource");
+		resolver.setViewNames("rpt_*");
+		resolver.setViewClass(JasperReportsMultiFormatView.class);
+		resolver.setOrder(0);
+		
+		return resolver;
+	}
+	
+	
 
 }

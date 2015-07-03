@@ -65,7 +65,9 @@ public class TutorialController {
 		if (judul == null || judul.length() < 1) {
 			page = tutorialService.findAll();
 		} else {
-			page = tutorialService.findByJudulContaining(judul);
+			//page = tutorialService.findByJudulContaining(judul);
+			Kategori kategori = new Kategori("006added-281e-41e8-8681-f7776783ce4e");
+			page = tutorialService.findByJudulOrKategoriContaining(judul, kategori);
 		}
 		System.out.println("judul = " + judul); 
 		model.addAttribute("tutorials", page);

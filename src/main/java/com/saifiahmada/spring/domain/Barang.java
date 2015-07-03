@@ -1,40 +1,30 @@
 package com.saifiahmada.spring.domain;
 
 import java.io.Serializable;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class Kategori implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class Barang implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id @GeneratedValue(generator="system-uuid")
 	@GenericGenerator(name="system-uuid", strategy = "uuid2")
 	@Column(length=40, nullable=false)
 	private String id;
-	@NotEmpty
-	@NotNull
-	@Column(length=20, nullable=false)
-	private String kategori;
 	
-	public Kategori() {
-
-	}
+	private String nama;
 	
-	public Kategori(String id) {
-		this.id = id;
-	}
+	private String gambar;
 
 	public String getId() {
 		return id;
@@ -44,12 +34,20 @@ public class Kategori implements Serializable {
 		this.id = id;
 	}
 
-	public String getKategori() {
-		return kategori;
+	public String getNama() {
+		return nama;
 	}
 
-	public void setKategori(String kategori) {
-		this.kategori = kategori;
+	public void setNama(String nama) {
+		this.nama = nama;
+	}
+
+	public String getGambar() {
+		return gambar;
+	}
+
+	public void setGambar(String gambar) {
+		this.gambar = gambar;
 	}
 
 	@Override
@@ -68,7 +66,7 @@ public class Kategori implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Kategori other = (Kategori) obj;
+		Barang other = (Barang) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -79,7 +77,7 @@ public class Kategori implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Kategori [id=" + id + "]";
+		return "Barang [id=" + id + "]";
 	}
 	
 }

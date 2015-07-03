@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="${page}"></title>
+	<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+	<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script> 
+</head>
+<body onload="document.form.nama.focus();">
+
+	<div th:include="header :: header"></div>
+	<div class="container">
+		<h3 th:text="${page}">Pembayaran</h3>
+		
+		<div th:if="${pesan != null}">
+			<div class="alert alert-success"><p th:text="${pesan}"></p></div>
+		</div>
+		
+		<form id="form" action="#" th:object="${entity}" enctype="multipart/form-data"
+			th:action="@{'/'+${page}+'/save.html'}" method="post" class="form-horizontal">
+		
+			<div class="form-group">
+				<label for="nama" class="col-sm-2 control-label">Nama</label>
+				<div class="col-sm-5">
+						<input type="text" id="nama" th:field="*{nama}" class="form-control" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="program" class="col-sm-2 control-label">Program Studi</label>
+				<div class="col-sm-5">
+						<input type="text" id="program" th:field="*{program}" class="form-control" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="biayaDaftar" class="col-sm-2 control-label">Biaya Pendaftaran</label>
+				<div class="col-sm-5">
+						<input type="text" id="biayaDaftar" th:field="*{biayaDaftar}" class="form-control" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="dpp" class="col-sm-2 control-label">DPP</label>
+				<div class="col-sm-5">
+						<input type="number" id="dpp" th:field="*{dpp}" class="form-control" /> 
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="spp" class="col-sm-2 control-label">SPP</label>
+				<div class="col-sm-5">
+						<input type="number" id="spp" th:field="*{spp}" class="form-control" /> 
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="pkl" class="col-sm-2 control-label">PKL</label>
+				<div class="col-sm-5">
+						<input type="number" id="pkl" th:field="*{pkl}" class="form-control" /> 
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="kemahasiswaaan" class="col-sm-2 control-label">Kemahasiswaan</label>
+				<div class="col-sm-5">
+						<input type="number" id="kemahasiswaaan" th:field="*{kemahasiswaaan}" class="form-control" /> 
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="total" class="col-sm-2 control-label">Total</label>
+				<div class="col-sm-5">
+						<input type="number" id="total" th:field="*{total}" class="form-control" /> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="penerima" class="col-sm-2 control-label">Penerima</label>
+				<div class="col-sm-5">
+						<input type="text" id="penerima" th:field="*{penerima}" class="form-control" /> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="gelombang" class="col-sm-2 control-label">Gelombang</label>
+				<div class="col-sm-5">
+						<input type="text" id="gelombang" th:field="*{gelombang}" class="form-control" /> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="jalur" class="col-sm-2 control-label">Jalur</label>
+				<div class="col-sm-5">
+						<input type="text" id="jalur" th:field="*{jalur}" class="form-control" /> 
+				</div>
+			</div>
+			
+			<button type="submit" class="btn btn-success">
+				<span class="glyphicon glyphicon-floppy-disk"></span> Simpan
+			</button>
+			<a href="#" th:href="@{'/'+${page}+'/form.html'}" class="btn btn-success">
+				<span class="glyphicon glyphicon-refresh"></span> Reset
+			</a>
+			<a href="#" th:href="@{'/'+${page}+'/pages/1.html'}" class="btn btn-success">
+				<span class="glyphicon glyphicon-list"></span> Data
+			</a>
+		
+		</form>
+		
+	</div>
+
+</body>
+</html>
