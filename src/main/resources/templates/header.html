@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
-	  xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <title>Header</title>
 <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
 <script type="text/javascript"
 	th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+
+
 </head>
 <body>
 	<div th:fragment="header">
@@ -24,25 +27,51 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						
-						<li th:class="${page == 'home' ? 'active' : ''}"><a th:href="@{/}"><span class="glyphicon glyphicon-home"></span> Home</a></li> 
-						<!-- <li th:class="${page == 'email' ? 'active' : ''}"><a th:href="@{/email}"><span class="glyphicon glyphicon-envelope"></span> Email</a></li> --> 
+
+						<li th:class="${page == 'home' ? 'active' : ''}"><a
+							th:href="@{/}"><span class="glyphicon glyphicon-home"></span>
+								Home</a></li>
+						<!-- <li th:class="${page == 'email' ? 'active' : ''}"><a th:href="@{/email}"><span class="glyphicon glyphicon-envelope"></span> Email</a></li> -->
 						<!-- <li th:class="${page == 'tutorial' ? 'active' : ''}"><a th:href="@{/tutorial/pages/1}"><span class="glyphicon glyphicon-file"></span> Tutorial</a></li> 
 						<li th:class="${page == 'specprog' ? 'active' : ''}"><a th:href="@{/tutorial/pages/1}"><span class="glyphicon glyphicon-file"></span> Spec Prog</a></li> 
 						<li th:class="${page == 'kategori' ? 'active' : ''}"><a th:href="@{/kategori/pages/1}"><span class="glyphicon glyphicon-file"></span> Kategori</a></li> 
-						<li th:class="${page == 'user' ? 'active' : ''}"><a th:href="@{/user/form}"><span class="glyphicon glyphicon-th-list"></span> User</a></li> --> 
+						<li th:class="${page == 'user' ? 'active' : ''}"><a th:href="@{/user/form}"><span class="glyphicon glyphicon-th-list"></span> User</a></li> -->
 						<!-- <li th:class="${page == 'matakuliah' ? 'active' : ''}"><a th:href="@{/matakuliah/pages/1}"><span class="glyphicon glyphicon-file"></span> Mata Kuliah</a></li> -->
 						<!-- <li th:class="${page == 'mahasiswa' ? 'active' : ''}"><a th:href="@{/mahasiswa/pages/1}"><span class="glyphicon glyphicon-file"></span> Mahasiswa</a></li> -->
 						<!-- <li th:class="${page == 'pendaftaran' ? 'active' : ''}"><a th:href="@{/pendaftaran/form}"><span class="glyphicon glyphicon-th-list"></span> Pendaftaran</a></li>  -->
 						<!-- <li th:class="${page == 'barang' ? 'active' : ''}"><a th:href="@{/barang/pages/1}"><span class="glyphicon glyphicon-file"></span> Barang</a></li>  -->
-						<!-- <li th:class="${page == 'pembayaran' ? 'active' : ''}"><a th:href="@{/pembayaran/pages/1}"><span class="glyphicon glyphicon-file"></span> Pembayaran</a></li> --> 
-						<li th:class="${page == 'peserta' ? 'active' : ''}"><a th:href="@{/peserta/pages/1}"><span class="glyphicon glyphicon-file"></span> Peserta</a></li> 
-						<li th:class="${page == 'peserta' ? 'active' : ''}"><a th:href="@{/peserta/cetak-form}"><span class="glyphicon glyphicon-file"></span> Cetak Kartu</a></li> 
-						<li th:class="${page == 'prodi' ? 'active' : ''}"><a th:href="@{/prodi/pages/1}"><span class="glyphicon glyphicon-file"></span> Prodi</a></li> 
+						<!-- <li th:class="${page == 'pembayaran' ? 'active' : ''}"><a th:href="@{/pembayaran/pages/1}"><span class="glyphicon glyphicon-file"></span> Pembayaran</a></li> -->
+						<li th:class="${page == 'peserta' ? 'active' : ''}"><a
+							th:href="@{/peserta/pages/1}"><span
+								class="glyphicon glyphicon-file"></span> Peserta</a></li>
+						<li th:class="${page == 'cetak' ? 'active' : ''}"><a
+							th:href="@{/cetak/form}"><span
+								class="glyphicon glyphicon-file"></span> Cetak</a></li>
+						<li th:class="${page == 'prodi' ? 'active' : ''}"><a
+							th:href="@{/prodi/pages/1}"><span
+								class="glyphicon glyphicon-file"></span> Prodi</a></li>
+						<li th:class="${page == 'beban' ? 'active' : ''}"><a
+							th:href="@{/beban/pages/1}"><span
+								class="glyphicon glyphicon-file"></span> Beban SKS</a></li>		
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Dropdown <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">Nav header</li>
+								<li><a href="#">Separated link</a></li>
+								<li><a href="#">One more separated link</a></li>
+							</ul></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#user"><span class="glyphicon glyphicon-user" th:inline="text"> [[${#httpServletRequest.remoteUser}]]</span></a></li> 
-						<li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off"></span> Logout</a></li> 
+						<li><a href="#user"><span
+								class="glyphicon glyphicon-user" th:inline="text">
+									[[${#httpServletRequest.remoteUser}]]</span></a></li>
+						<li><a th:href="@{/logout}"><span
+								class="glyphicon glyphicon-off"></span> Logout</a></li>
 					</ul>
 				</div>
 				<!-- /.nav-collapse -->

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_beban_sks_prodi" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d6c6b8b0-d331-4ca8-803e-f57840a7b999">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PRODI" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select kode_mk, mata_kuliah, jumlah_sks, dosen_pengampu, teori_beban, praktik_beban, praktik_lapangan_beban from beban where kode_prodi = $P{PRODI} order by kode_mk, teori_beban asc]]>
+	</queryString>
+	<field name="kode_mk" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mata_kuliah" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah_sks" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dosen_pengampu" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="teori_beban" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="praktik_beban" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="praktik_lapangan_beban" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="MATA KULIAH">
+		<groupExpression><![CDATA[$F{kode_mk}]]></groupExpression>
+		<groupHeader>
+			<band>
+				<line>
+					<reportElement uuid="31f03a83-e9af-4ca3-a617-32cfe41431cc" x="0" y="-4" width="555" height="1"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement uuid="2f61875b-05f6-413b-a1eb-d2c9469beb95" x="0" y="53" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{PRODI}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="31f03a83-e9af-4ca3-a617-32cfe41431cc" x="0" y="76" width="555" height="1"/>
+			</line>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="84b301c7-548b-4963-ba71-a0a313ce2805" x="1" y="0" width="47" height="46"/>
+				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/logo_poltek.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="da00e71a-c567-4941-980c-d888a4954c1d" x="59" y="33" width="192" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Courier 10 Pitch" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[www.unggulan-kalimantan.ac.id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="da00e71a-c567-4941-980c-d888a4954c1d" x="59" y="3" width="192" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Courier 10 Pitch" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[POLITEKNIK UNGGULAN KALIMANTAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="da00e71a-c567-4941-980c-d888a4954c1d" x="59" y="18" width="192" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Courier 10 Pitch" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jl. Hidayatullah Banjarmasin]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9277806e-d400-4ae7-8100-a3b028c03026" x="0" y="0" width="151" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Mata Kuliah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="87609881-10a5-4a3b-b4fa-443afa45c506" x="158" y="1" width="24" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[SKS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="320beebe-f628-4e04-8904-215d278a3807" x="198" y="2" width="168" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Dosen Pengampu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7645cd02-d028-423f-960f-c0a2dfb8e8a0" x="380" y="2" width="20" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[T]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bdc1c337-caeb-4cd1-94c2-4fc379230b92" x="418" y="2" width="21" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[P]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f720e782-ca17-4d8a-bd93-eab2303e6507" x="456" y="2" width="26" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[PL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement uuid="d3f5b4f7-8391-4194-a718-4af3b0e757ce" isPrintRepeatedValues="false" x="0" y="4" width="151" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{mata_kuliah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="10aaebe5-d126-4f67-94cd-39e3150f8c0f" isPrintRepeatedValues="false" x="158" y="4" width="24" height="20" printWhenGroupChanges="MATA KULIAH"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{jumlah_sks}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9bc7b061-ef28-44c6-8547-03d2f5cf6720" x="198" y="4" width="168" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dosen_pengampu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="86bdbcbe-d695-4b48-83f9-8f583a0fae3c" x="380" y="4" width="20" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{teori_beban}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bc372fe0-5d28-4f65-b558-73c0aa7c7bc2" x="418" y="3" width="21" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{praktik_beban}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="62c0d79a-ecca-4767-a565-02b03d1369f7" x="456" y="4" width="26" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{praktik_lapangan_beban}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<line>
+				<reportElement uuid="31f03a83-e9af-4ca3-a617-32cfe41431cc" x="0" y="3" width="555" height="1"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

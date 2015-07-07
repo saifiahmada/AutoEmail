@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>Create File Bengkel Harian</title>
+<title>Cetak</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -25,21 +25,41 @@
 	<br />
 	<div class="container">
 
-		<h1>Cetak Kartu Peserta Tes Ujian Masuk</h1>
+		<h1>Cetak</h1>
 		<br />
-		<form action="#" th:action="@{/peserta/report}"
+		<form action="#" th:action="@{/cetak/report}"
 			class="form-horizontal" method="post" target="_blank">
 			
-			<!-- <div class="form-group">
-				<label for="descs" class="col-sm-2 control-label">Manager</label>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Pilih</label>
 				<div class="col-sm-5">
-						<input type="text" name="manager" class="form-control" maxlength="50" />
+					<select name="pilih" id="pilih" class="form-control input-sm"> 
+					  <option value="1" label="Kartu Tes">Kartu Tes</option>
+					  <option value="2" label="Kartu Wawancara">Kartu Wawancara</option> 
+					  <option value="3" label="Form Dokter">Form Dokter</option> 
+					  <option value="4" label="Tes Urine">Tes Urine</option> 
+					  <option value="5" label="Beban SKS Dosen">Beban SKS Dosen</option> 
+					  <option value="6" label="Beban SKS Prodi">Beban SKS Prodi</option> 
+					</select>	
 				</div>
-			</div> -->
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Pilih Prodi</label>
+				<div class="col-sm-5">
+					<select name="prodi" id="prodi" class="form-control input-sm"> 
+					  <option value="Farmasi">Farmasi</option>
+					  <option value="Fisioterapi">Fisioterapi</option> 
+					  <option value="Teknik Elektromedik">Teknik Elektromedik</option> 
+					  <option value="Analis Kesehatan">Analis Kesehatan</option> 
+					  <option value="Perekam Medis">Perekam Medis</option> 
+					</select>	
+				</div>
+			</div>
 
 			<div class="form-group">
 				<div class="col-sm-5">
-					<button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-floppy-disk"></i> Cetak</button>
+					<button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-print"></i> Cetak</button>
 					 <a href="#"
 						th:href="@{/peserta/cetak-form.html}" class="btn btn-success"><span
 						class="glyphicon glyphicon-refresh"></span> Reset</a>

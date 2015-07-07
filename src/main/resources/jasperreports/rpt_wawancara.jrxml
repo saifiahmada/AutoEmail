@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="kartu_tes" columnCount="2" printOrder="Horizontal" pageWidth="595" pageHeight="842" columnWidth="283" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="cf415b63-ba81-4a6f-9dcf-c0b65848c616">
+	<property name="ireport.zoom" value="1.9487171000000056"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="16"/>
+	<queryString>
+		<![CDATA[select nama, wali, alamat, no_telp, waktu_wawancara,tempat_lahir, tgl_lahir, asal_sekolah from peserta]]>
+	</queryString>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="wali" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="no_telp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="waktu_wawancara" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tempat_lahir" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_lahir" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="asal_sekolah" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="no_urut" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{nama}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="200" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="5f84b6b3-a78d-4509-b7e2-18bc64c4d54d" x="2" y="1" width="279" height="196"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement uuid="edbbe48d-9194-4b75-8fa0-167d5087acd0" x="6" y="7" width="48" height="49"/>
+				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/logo_poltek.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="efc9a513-0ef4-4eab-b6dc-e1d4420108f5" x="54" y="21" width="165" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Nimbus Roman No9 L" size="8"/>
+				</textElement>
+				<text><![CDATA[POLITEKNIK UNGGULAN KALIMANTAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="efc9a513-0ef4-4eab-b6dc-e1d4420108f5" x="54" y="7" width="165" height="14" forecolor="#EF561D"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Brush Script MT" size="10" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[YAYASAN PUCUK MERAH]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="adbceb35-c1a9-4f52-b206-3e6c56d5b662" x="9" y="58" width="264" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="8" y="72" width="88" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="108" y="72" width="165" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="8" y="83" width="88" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Orang Tua / Wali Siswa]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="108" y="83" width="165" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{wali}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="8" y="62" width="88" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[No. Peserta]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="108" y="62" width="165" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{no_urut}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="7" y="94" width="88" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="107" y="94" width="166" height="19"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="7" y="113" width="88" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Telpon]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="107" y="113" width="166" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{no_telp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="95" y="62" width="13" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="95" y="72" width="13" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="95" y="83" width="13" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="94" y="94" width="13" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="94" y="113" width="13" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="96" y="182" width="162" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Arief Rachman, S.Si, Apt., M.Mkes"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="127" y="137" width="53" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Banjarmasin,"+new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement uuid="4cf61f3e-47d9-45c2-906c-4f6fb97ba52f" x="180" y="137" width="78" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="edbbe48d-9194-4b75-8fa0-167d5087acd0" x="221" y="7" width="47" height="49"/>
+				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/logo_yayasan_300.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="96" y="147" width="162" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ketua Yayasan Pucuk Merah"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="7" y="124" width="88" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Waktu Wawancara]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="94" y="124" width="13" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="107" y="124" width="166" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waktu_wawancara}+" WITA"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="efc9a513-0ef4-4eab-b6dc-e1d4420108f5" x="54" y="32" width="165" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Nimbus Roman No9 L" size="8"/>
+				</textElement>
+				<text><![CDATA[KARTU WAWANCARA ORANG TUA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="efc9a513-0ef4-4eab-b6dc-e1d4420108f5" x="54" y="43" width="165" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Nimbus Roman No9 L" size="8"/>
+				</textElement>
+				<text><![CDATA[TAHUN PELAJARAN 2015 / 2016]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

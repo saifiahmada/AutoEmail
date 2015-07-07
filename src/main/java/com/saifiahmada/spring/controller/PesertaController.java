@@ -83,23 +83,5 @@ public class PesertaController {
 		return "peserta-form";
 	}
 	
-	@RequestMapping(value = "/cetak-form", method = RequestMethod.GET)
-	public String cetakForm(Model model) {
-		return "kartu-tes-form";
-	}
-	
-	@RequestMapping(value = "/report", method = RequestMethod.POST)
-	public ModelAndView getReport(ModelMap modelMap, ModelAndView modelAndView) throws SQLException {
-		
-		Locale locale = new Locale("in", "ID");
-		
-		modelMap.put("format", "pdf");
-		modelMap.put("REPORT_CONNECTION", datasource.getConnection());
-		modelMap.put("REPORT_LOCALE", locale);
-	    
-		modelAndView = new ModelAndView("rpt_kartu_tes", modelMap);
-		return modelAndView;
-	}
-
 
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="kartu_tes" printOrder="Horizontal" pageWidth="595" pageHeight="842" columnWidth="567" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="cf415b63-ba81-4a6f-9dcf-c0b65848c616">
 	<property name="ireport.zoom" value="2.357947691000007"/>
-	<property name="ireport.x" value="51"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="250"/>
+	<property name="ireport.y" value="122"/>
 	<queryString>
 		<![CDATA[select nama, tempat_lahir, tgl_lahir, asal_sekolah from peserta]]>
 	</queryString>
@@ -69,7 +69,7 @@
 			<staticText>
 				<reportElement uuid="efc9a513-0ef4-4eab-b6dc-e1d4420108f5" x="55" y="7" width="165" height="14" forecolor="#EF561D"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Brush Script MT" size="10"/>
+					<font fontName="Brush Script MT" size="10" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[YAYASAN PUCUK MERAH]]></text>
 			</staticText>
@@ -192,14 +192,14 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="96" y="174" width="162" height="11"/>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="96" y="181" width="162" height="11"/>
 				<textElement textAlignment="Center">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Arief Rachman, S.Si, Apt., M.Mkes"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="127" y="131" width="53" height="11"/>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="127" y="128" width="53" height="11"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -210,7 +210,7 @@
 				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/foto34.jpg"]]></imageExpression>
 			</image>
 			<textField pattern="dd MMMMM yyyy">
-				<reportElement uuid="4cf61f3e-47d9-45c2-906c-4f6fb97ba52f" x="180" y="131" width="78" height="11"/>
+				<reportElement uuid="4cf61f3e-47d9-45c2-906c-4f6fb97ba52f" x="180" y="128" width="78" height="11"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -321,7 +321,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField pattern="dd MMMMM yyyy">
-				<reportElement uuid="4cf61f3e-47d9-45c2-906c-4f6fb97ba52f" x="466" y="131" width="78" height="11"/>
+				<reportElement uuid="4cf61f3e-47d9-45c2-906c-4f6fb97ba52f" x="466" y="128" width="78" height="11"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -330,12 +330,12 @@
 			<staticText>
 				<reportElement uuid="efc9a513-0ef4-4eab-b6dc-e1d4420108f5" x="341" y="7" width="165" height="14" forecolor="#EF561D"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Brush Script MT" size="10"/>
+					<font fontName="Brush Script MT" size="10" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[YAYASAN PUCUK MERAH]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="413" y="131" width="53" height="11"/>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="413" y="128" width="53" height="11"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -349,7 +349,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="382" y="174" width="162" height="11"/>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="382" y="181" width="162" height="11"/>
 				<textElement textAlignment="Center">
 					<font size="8"/>
 				</textElement>
@@ -464,6 +464,20 @@
 				</textElement>
 				<text><![CDATA[KARTU PESERTA TES UJIAN MASUK]]></text>
 			</staticText>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="95" y="140" width="162" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ketua Yayasan Pucuk Merah"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="382" y="140" width="162" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ketua Yayasan Pucuk Merah"]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

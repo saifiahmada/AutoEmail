@@ -14,19 +14,12 @@
 
 <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
 
-<style type="text/css">
-	table.auto
-{
-    table-layout:auto;
-}
-</style>
-
 </head>
 
 <body onload="document.form.searchText.focus();">
 
 	<div th:include="header :: header"></div>
-	<div class="container-fluid">
+	<div class="container">
 		<h3 th:text="'Data ' + ${page}"></h3>
 
 		<form id="form" action="#" th:action="@{'/'+${page}+'/search.html'}" method="post">
@@ -43,41 +36,51 @@
 				<span class="glyphicon glyphicon-plus"></span> Tambah
 			</a>
 		</form>
-		<br /> <br />
+		<br/>
+		<!-- <form th:action="@{'/'+${page}+'/cetak'}" method="post" target="_blank"> 
+			<button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-print"></i> Cetak</button>
+		</form> -->
 		
-		<table class="table table-bordered table-hover table-striped auto">
+		<br />
+		<table class="table table-bordered table-hover table-striped">
 			<thead>
 				<tr>
 					<th>No</th>
-					<th>Nama</th>
-					<th>Wali</th>
-					<th>Alamat</th>
-					<th>No Telp</th>
-					<th>Wawancara</th>
-					<th>Gel</th>
-					<th>Jalur</th>
-					<th>Gambar</th>
+					<th>Prodi</th>
+					<th>Kode MK</th>
+					<th>Mata Kulaih</th>
+					<th>SKS</th>
+					<th>Teori</th>
+					<th>Praktik</th>
+					<th>Dosen Pengampu</th>
+					<th>Teori</th>
+					<th>Praktik</th>
+					<th>Praktik Lap</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="entity, number : ${dataModel}">
 					<td th:text="${number.count}">1</td>
-					<td th:text="${entity.nama}">nama</td>
-					<td th:text="${entity.wali}">wali</td>
-					<td th:text="${entity.alamat}">Alamat</td>
-					<td th:text="${entity.noTelp}">No Telp</td>
-					<td th:text="${entity.waktuWawancara}">Waktu Wawancara</td>
-					<td th:text="${entity.gelombang}">Gelombang</td>
-					<td th:text="${entity.jalur}">Jalur</td>
-					<td th:text="${entity.imageFoto}">Image Foto</td>
+					<td th:text="${entity.kodeProdi}">nama</td>
+					<td th:text="${entity.kodeMk}">nama</td>
+					<td th:text="${entity.mataKuliah}">gambar</td>
+					<td th:text="${entity.jumlahSks}">gambar</td>
+					<td th:text="${entity.teoriDistribusi}">gambar</td>
+					<td th:text="${entity.praktikDistribusi}">gambar</td>
+					<td th:text="${entity.dosenPengampu}">gambar</td>
+					<td th:text="${entity.teoriBeban}">gambar</td>
+					<td th:text="${entity.praktikBeban}">gambar</td>
+					<td th:text="${entity.praktikLapanganBeban}">gambar</td>
 				</tr>
+
 			</tbody>
+
 		</table>
-		
+
 		<div class="table-pagination">
 			<ul class="pagination">
 				<li th:class="${dataModel.number eq 0} ? 'disabled' : ''">
-					<a th:if="${!dataModel.first}" th:href="@{'/'+${page}+'/pages/'+${dataModel.number}+'.html'}">Previous</a>
+					<a th:if="${!dataModel.first}" th:href="@{'/beban/pages/'+${dataModel.number}+'.html'}">Previous</a>
 					<a th:if="${dataModel.first}" href="javascript:void(0);">Previous</a>
 				</li>
 
@@ -86,17 +89,23 @@
 					th:class="${dataModel.number eq pageNo}? 'active' : ''">
 					<a th:if="${dataModel.number  eq pageNo}" href="javascript:void(0);"> <span th:text="${pageNo + 1}"></span></a>
 					<a th:if="${! (dataModel.number  eq pageNo)}"
-					th:href="@{'/'+${page}+'/pages/'+${pageNo + 1}+'.html'}">
+					th:href="@{'/beban/pages/'+${pageNo + 1}+'.html'}">
 						<span th:text="${pageNo + 1}"></span>
 				</a></li>
 				<li
 					th:class="${dataModel.number + 1 ge dataModel.totalPages} ? 'disabled' : ''">
-					<a th:if="${! dataModel.last}" th:href="@{'/'+${page}+'/pages/'+${dataModel.number + 2}+'.html'}">Next</a>
+					<a th:if="${! dataModel.last}" th:href="@{'/beban/pages/'+${dataModel.number + 2}+'.html'}">Next</a>
 					<a th:if="${dataModel.last}" href="javascript:void(0);">Next</a>
 				</li>
 				<li><span th:text="'Jumlah data '+${dataModel.totalElements}"></span></li>
 			</ul>
 		</div>
+		
+		<label>Total  = </label><span th:text="${totalTeoriBeban}"></span> 
+		<br/>
+		<label>Total  = </label><span th:text="${totalPraktikBeban}"></span>
+		<br/> 
+		<label>Total  = </label><span th:text="${totalPraktikLapanganBeban}"></span>
 		
 	</div>
 
