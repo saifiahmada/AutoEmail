@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="kartu_tes" printOrder="Horizontal" pageWidth="595" pageHeight="842" columnWidth="567" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="cf415b63-ba81-4a6f-9dcf-c0b65848c616">
 	<property name="ireport.zoom" value="2.357947691000007"/>
-	<property name="ireport.x" value="250"/>
-	<property name="ireport.y" value="122"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="157"/>
 	<queryString>
-		<![CDATA[select nama, tempat_lahir, tgl_lahir, asal_sekolah from peserta]]>
+		<![CDATA[select no_peserta,nama, tempat_lahir, tgl_lahir, asal_sekolah, image_foto from peserta order by no_peserta]]>
 	</queryString>
+	<field name="no_peserta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="nama" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -16,6 +19,9 @@
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="asal_sekolah" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="image_foto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<variable name="no_urut" class="java.lang.Integer" calculation="Count">
@@ -119,7 +125,7 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$V{no_urut}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{no_peserta}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="7" y="101" width="88" height="11"/>
@@ -192,22 +198,15 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="96" y="181" width="162" height="11"/>
-				<textElement textAlignment="Center">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Arief Rachman, S.Si, Apt., M.Mkes"]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="127" y="128" width="53" height="11"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Banjarmasin,"]]></textFieldExpression>
 			</textField>
-			<image>
+			<image onErrorType="Blank">
 				<reportElement uuid="d0f4b8c3-50cb-4155-81f1-056b009049b7" x="8" y="127" width="71" height="65"/>
-				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/foto34.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$F{image_foto}]]></imageExpression>
 			</image>
 			<textField pattern="dd MMMMM yyyy">
 				<reportElement uuid="4cf61f3e-47d9-45c2-906c-4f6fb97ba52f" x="180" y="128" width="78" height="11"/>
@@ -290,7 +289,7 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$V{no_urut}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{no_peserta}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="393" y="113" width="162" height="11"/>
@@ -348,13 +347,6 @@
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
-			<textField>
-				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="382" y="181" width="162" height="11"/>
-				<textElement textAlignment="Center">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Arief Rachman, S.Si, Apt., M.Mkes"]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="294" y="89" width="88" height="11"/>
 				<textElement>
@@ -433,9 +425,9 @@
 				</textElement>
 				<text><![CDATA[No. Peserta]]></text>
 			</staticText>
-			<image>
+			<image onErrorType="Blank">
 				<reportElement uuid="d0f4b8c3-50cb-4155-81f1-056b009049b7" x="295" y="128" width="71" height="65"/>
-				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/foto34.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$F{image_foto}]]></imageExpression>
 			</image>
 			<line>
 				<reportElement uuid="adbceb35-c1a9-4f52-b206-3e6c56d5b662" x="295" y="60" width="264" height="1"/>
@@ -464,20 +456,50 @@
 				</textElement>
 				<text><![CDATA[KARTU PESERTA TES UJIAN MASUK]]></text>
 			</staticText>
+			<image>
+				<reportElement uuid="e99038fa-91b9-4693-8d4d-1bfeac862487" mode="Transparent" x="127" y="150" width="93" height="31"/>
+				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/ttd.jpg"]]></imageExpression>
+			</image>
 			<textField>
-				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="95" y="140" width="162" height="11"/>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="96" y="139" width="162" height="11"/>
 				<textElement textAlignment="Center">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Ketua Yayasan Pucuk Merah"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Wadir I (Bidang Akademik)"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="382" y="140" width="162" height="11"/>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="98" y="176" width="162" height="11"/>
 				<textElement textAlignment="Center">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Ketua Yayasan Pucuk Merah"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Rahmat Wirayudha, SPd. Kim"]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement uuid="e99038fa-91b9-4693-8d4d-1bfeac862487" mode="Transparent" x="413" y="150" width="93" height="31"/>
+				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/ttd.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="382" y="139" width="162" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Wadir I (Bidang Akademik)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="382" y="176" width="162" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rahmat Wirayudha, SPd. Kim"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="55d485d7-ff45-4200-bdc4-e476e79442c2" x="249" y="164" width="28" height="28"/>
+				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/qrcode_poltek.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="55d485d7-ff45-4200-bdc4-e476e79442c2" x="533" y="164" width="28" height="28"/>
+				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/qrcode_poltek.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</detail>
 	<columnFooter>

@@ -94,10 +94,6 @@ public class BebanController {
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@ModelAttribute("entity") Beban beban, Model model) {
-		/*if (beban.getNama() == null || beban.getNama().length() < 1) {
-			model.addAttribute("pesan", "nama belum diisi");
-			return "beban-form";
-		}*/
 
 		bebanService.save(beban);
 		model.addAttribute("pesan", "Data [ "+ beban.getKodeProdi() + ", " + beban.getMataKuliah() + ", " + beban.getDosenPengampu() +" ] berhasil disimpan");

@@ -57,6 +57,8 @@ public class CetakController {
 		} else if (pilih.equalsIgnoreCase("6")) {
 			modelMap.put("PRODI", prodi);
 			modelAndView = new ModelAndView("rpt_beban_sks_prodi", modelMap);
+		} else if (pilih.equalsIgnoreCase("7")) {
+			modelAndView = new ModelAndView("rpt_interview_ortu", modelMap);
 		}
 		
 		return modelAndView;

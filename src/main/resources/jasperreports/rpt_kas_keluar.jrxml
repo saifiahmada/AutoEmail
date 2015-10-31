@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_kas_keluar" pageWidth="612" pageHeight="396" orientation="Landscape" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="651cce44-fe21-400e-8c8c-6a03dfcc1757">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="10"/>
+	<queryString>
+		<![CDATA[select * from kas_keluar where no_transaksi = 'KK/15/070001']]>
+	</queryString>
+	<field name="no_transaksi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="approver" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="giver" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="keterangan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="penerima" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<line>
+				<reportElement uuid="b6eb8ecc-4c8d-4f11-acc2-ffa015de2f1a" x="0" y="68" width="572" height="1"/>
+			</line>
+			<image>
+				<reportElement uuid="1f63a610-e659-4e5a-a71f-84587872a780" x="5" y="5" width="51" height="53"/>
+				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/logo_poltek.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="19bef775-772f-4a25-9814-b0e88a8c466a" x="95" y="5" width="242" height="15"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[POLITEKNIK UNGGULAN KALIMANTAN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="218" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="aa23cfa8-fdaa-4a03-b2c1-8390e666b469" x="422" y="115" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Mengetujui]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="4ebac8d0-a245-454a-9e89-fd8c8ea52afd" x="422" y="164" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{approver}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c7a803ce-0489-4854-8824-65bd3256f53d" x="4" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[No Transaksi]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="87fc9d7a-7a24-4191-ad8b-3460d88f8b64" x="145" y="0" width="410" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{no_transaksi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="690c4aba-03fe-4832-847b-20e65ac0e4f3" x="4" y="26" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tgl Transaksi]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yy">
+				<reportElement uuid="2b843d90-61d4-4929-8c5b-1cf8d5aa477a" x="145" y="26" width="410" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tgl}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="88287227-7fe1-427a-a65f-cd4a10b3c6b5" x="4" y="57" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="405a9f8c-f9b6-49cf-a90c-07bc311082f3" x="145" y="57" width="410" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2830b849-b94a-4523-a0a9-bddb12052660" x="4" y="88" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="921b58b6-145f-4c67-8a16-2417b61f5f17" x="145" y="88" width="410" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{keterangan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="212d9ea5-e535-446d-acac-41fa2bf61a48" x="237" y="115" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Mengeluarkan]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="b5a9ee99-bf43-47a1-98f5-b00e8f338011" x="237" y="164" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{giver}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="3ad57c4a-ae59-46fc-b921-6f3e126c1f39" x="45" y="115" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Penerima]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3fca038e-3437-41a9-b7fc-49d30176dde7" x="45" y="164" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{penerima}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c7a803ce-0489-4854-8824-65bd3256f53d" x="110" y="0" width="28" height="20"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2830b849-b94a-4523-a0a9-bddb12052660" x="110" y="88" width="28" height="20"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="690c4aba-03fe-4832-847b-20e65ac0e4f3" x="110" y="26" width="28" height="20"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="88287227-7fe1-427a-a65f-cd4a10b3c6b5" x="110" y="57" width="28" height="20"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

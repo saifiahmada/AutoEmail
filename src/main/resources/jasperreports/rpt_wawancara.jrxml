@@ -2,10 +2,13 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="kartu_tes" columnCount="2" printOrder="Horizontal" pageWidth="595" pageHeight="842" columnWidth="283" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="cf415b63-ba81-4a6f-9dcf-c0b65848c616">
 	<property name="ireport.zoom" value="1.9487171000000056"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="16"/>
+	<property name="ireport.y" value="214"/>
 	<queryString>
-		<![CDATA[select nama, wali, alamat, no_telp, waktu_wawancara,tempat_lahir, tgl_lahir, asal_sekolah from peserta]]>
+		<![CDATA[select no_peserta,nama, wali, alamat, no_telp, waktu_wawancara,tempat_lahir, tgl_lahir, asal_sekolah from peserta order by no_peserta]]>
 	</queryString>
+	<field name="no_peserta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="nama" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -117,7 +120,7 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$V{no_urut}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{no_peserta}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="7" y="94" width="88" height="11"/>
@@ -183,13 +186,6 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="96" y="182" width="162" height="11"/>
-				<textElement textAlignment="Center">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Arief Rachman, S.Si, Apt., M.Mkes"]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="127" y="137" width="53" height="11"/>
 				<textElement>
 					<font size="8"/>
@@ -207,13 +203,6 @@
 				<reportElement uuid="edbbe48d-9194-4b75-8fa0-167d5087acd0" x="221" y="7" width="47" height="49"/>
 				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/logo_yayasan_300.jpg"]]></imageExpression>
 			</image>
-			<textField>
-				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="96" y="147" width="162" height="11"/>
-				<textElement textAlignment="Center">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Ketua Yayasan Pucuk Merah"]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="7" y="124" width="88" height="11"/>
 				<textElement>
@@ -249,6 +238,28 @@
 				</textElement>
 				<text><![CDATA[TAHUN PELAJARAN 2015 / 2016]]></text>
 			</staticText>
+			<image>
+				<reportElement uuid="55d485d7-ff45-4200-bdc4-e476e79442c2" x="245" y="164" width="28" height="28"/>
+				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/qrcode_poltek.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="e99038fa-91b9-4693-8d4d-1bfeac862487" mode="Transparent" x="109" y="155" width="93" height="31"/>
+				<imageExpression><![CDATA["/home/saifi/Documents/workspace-sts-3.6.2.RELEASE/AutoEmail/src/main/resources/static/images/ttd.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="80" y="181" width="162" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rahmat Wirayudha, SPd. Kim"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e33f088a-7041-4cd1-89f2-d6151a8f0864" x="88" y="148" width="162" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Wadir I (Bidang Akademik)"]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

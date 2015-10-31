@@ -4,8 +4,11 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[select nama, alamat from peserta]]>
+		<![CDATA[select no_peserta, nama, alamat from peserta order by no_peserta]]>
 	</queryString>
+	<field name="no_peserta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="nama" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -88,7 +91,7 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$V{no_urut}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{no_peserta}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="31748b56-984b-4421-9383-28bf7e34863c" x="69" y="23" width="13" height="11"/>

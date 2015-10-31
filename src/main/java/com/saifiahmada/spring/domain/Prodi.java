@@ -19,7 +19,7 @@ public class Prodi implements Serializable {
 	@Column(length=40, nullable=false)
 	private String id;
 	
-	private String kode;
+	private int kode;
 	
 	private String nama;
 	
@@ -35,11 +35,11 @@ public class Prodi implements Serializable {
 		this.id = id;
 	}
 
-	public String getKode() {
+	public int getKode() {
 		return kode;
 	}
 
-	public void setKode(String kode) {
+	public void setKode(int kode) {
 		this.kode = kode;
 	}
 
